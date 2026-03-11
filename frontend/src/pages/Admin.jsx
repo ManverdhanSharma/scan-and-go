@@ -12,7 +12,7 @@ function Admin() {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/products');
+      const response = await axios.get('https://scan-and-go-backend-kiu3.onrender.com/api/products');
       setProducts(response.data);
     } catch (error) {
       console.error("Error fetching products", error);
@@ -31,7 +31,7 @@ function Admin() {
     }
 
     try {
-      await axios.post('http://localhost:5000/api/products', {
+      await axios.post('https://scan-and-go-backend-kiu3.onrender.com/api/products', {
         barcode,
         name,
         price: Number(price),
@@ -55,7 +55,7 @@ function Admin() {
     if (addedStock && !isNaN(addedStock) && Number(addedStock) > 0) {
       const newTotal = currentStock + Number(addedStock);
       try {
-        await axios.put(`http://localhost:5000/api/products/${id}`, { stock: newTotal });
+        await axios.put(`https://scan-and-go-backend-kiu3.onrender.com/api/products/${id}`, { stock: newTotal });
         setMessage(`✅ Restocked! ${productName} now has ${newTotal} in stock.`);
         fetchProducts(); 
       } catch (error) {
@@ -67,7 +67,7 @@ function Admin() {
   const handleDeleteProduct = async (id, productName) => {
     if (window.confirm(`Delete ${productName}?`)) {
       try {
-        await axios.delete(`http://localhost:5000/api/products/${id}`);
+        await axios.delete(`https://scan-and-go-backend-kiu3.onrender.com/api/products/${id}`);
         setMessage(`✅ Deleted ${productName}`);
         fetchProducts();
       } catch (error) {

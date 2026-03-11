@@ -18,10 +18,10 @@ function Profile() {
 
     try {
       // 1. Login (This creates an account in the DB if they don't have one)
-      await axios.post('http://localhost:5000/api/users/login', { mobileNumber: mobile });
+      await axios.post('https://scan-and-go-backend-kiu3.onrender.com/api/users/login', { mobileNumber: mobile });
       
       // 2. Fetch their actual profile and order history
-      const response = await axios.get(`http://localhost:5000/api/users/${mobile}`);
+      const response = await axios.get(`https://scan-and-go-backend-kiu3.onrender.com/api/users/${mobile}`);
       setUserData(response.data.user);
       setHistory(response.data.history);
       

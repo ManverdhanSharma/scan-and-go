@@ -18,7 +18,7 @@ function Customer() {
     setMessage(`Fetching product...`);
 
     try {
-      const response = await axios.get(`http://localhost:5000/api/products/${barcode}`);
+      const response = await axios.get(`https://scan-and-go-backend-kiu3.onrender.com/api/products/${barcode}`);
       const product = response.data;
 
       // CHECK 1: Is it completely out of stock?
@@ -76,7 +76,7 @@ function Customer() {
       const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
       const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
-      const response = await axios.post('http://localhost:5000/api/orders', {
+      const response = await axios.post('https://scan-and-go-backend-kiu3.onrender.com/api/orders', {
         mobileNumber: mobile, 
         totalItems, 
         totalAmount, 

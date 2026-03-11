@@ -16,7 +16,7 @@ function Guard() {
     setIsScanning(false);
 
     try {
-      const response = await axios.get(`http://localhost:5000/api/orders/${idToVerify}`);
+      const response = await axios.get(`https://scan-and-go-backend-kiu3.onrender.com/api/orders/${idToVerify}`);
       setOrderData(response.data);
       setMessage('✅ Order Verified!');
       setOrderId(idToVerify); 
