@@ -1,0 +1,149 @@
+/* Import a modern, clean font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* --- COLOR VARIABLES --- */
+:root {
+  --primary: #2563eb; /* Deeper, more professional blue */
+  --primary-hover: #1d4ed8;
+  --success: #10b981;
+  --success-hover: #059669;
+  --danger: #ef4444;
+  --background: #f8fafc; /* Very soft slate background */
+  --card-bg: #ffffff;
+  --text-main: #0f172a; /* Slate 900 for high readability */
+  --text-muted: #64748b; 
+  --border: #e2e8f0; 
+}
+
+/* --- GLOBAL RESET & CENTERING --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: var(--background);
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- LAYOUT - WIDER FOR PC --- */
+.app-container {
+  width: 100%;
+  max-width: 800px; /* INCREASED: Much wider for desktop */
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* --- NAVIGATION BAR - FLOATING PILL --- */
+.navbar {
+  background-color: var(--card-bg);
+  padding: 16px 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  display: flex;
+  justify-content: space-around;
+  border-radius: 20px; /* Fully rounded pill shape */
+  margin-bottom: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  padding: 8px 16px;
+  border-radius: 12px;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+  background-color: #eff6ff;
+}
+
+/* --- TYPOGRAPHY --- */
+h1 { font-size: 28px; font-weight: 700; text-align: center; margin-bottom: 10px; letter-spacing: -0.5px; }
+h2 { font-size: 20px; font-weight: 600; margin-bottom: 20px; letter-spacing: -0.3px; }
+
+/* --- CARDS - PREMIUM SHADOWS --- */
+.card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 32px;
+  /* Multi-layered soft shadow for depth */
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+  border: 1px solid #ffffff;
+  transition: transform 0.2s ease;
+}
+
+/* --- INPUT FIELDS --- */
+.input-field {
+  width: 100%;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 16px;
+  background-color: #f8fafc;
+  transition: all 0.2s;
+  color: var(--text-main);
+}
+
+.input-field:focus {
+  border-color: var(--primary);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+  outline: none;
+}
+
+/* --- BUTTONS --- */
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+}
+
+/* Adds colored glow shadows when hovering */
+.btn-primary { background-color: var(--primary); color: white; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2); }
+.btn-primary:hover { background-color: var(--primary-hover); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3); }
+
+.btn-success { background-color: var(--success); color: white; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2); }
+.btn-success:hover { background-color: var(--success-hover); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(16, 185, 129, 0.3); }
+
+.btn-checkout { background-color: #0f172a; color: white; font-size: 18px; letter-spacing: 0.5px; }
+.btn-checkout:hover { background-color: #1e293b; transform: translateY(-2px); }
+
+/* --- CART LIST --- */
+.cart-list { list-style: none; }
+.cart-item { display: flex; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid var(--border); align-items: center;}
+.cart-item:last-child { border-bottom: none; padding-bottom: 0; }
+.cart-item-name { font-weight: 500; font-size: 17px;}
+.cart-item-price { font-weight: 700; font-size: 17px;}
+
+/* --- ALERT MESSAGES --- */
+.message-success, .message-error { padding: 16px; border-radius: 12px; text-align: center; font-weight: 600; margin-bottom: 20px; }
+.message-success { background-color: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+.message-error { background-color: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+
+/* --- MOBILE RESPONSIVENESS (Automatically squishes for phones) --- */
+@media screen and (max-width: 600px) {
+  .app-container { padding: 12px; max-width: 100%; }
+  .navbar { border-radius: 16px; padding: 12px 10px; }
+  .nav-link { font-size: 14px; padding: 8px 10px; }
+  .card { padding: 20px; border-radius: 16px; }
+}
